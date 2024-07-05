@@ -42,7 +42,7 @@ var tasks = map[string]Task{
 }
 
 // Обработчик для получения всех задач
-getTasks getTasks(w http.ResponseWriter, r *http.Request) {
+func getTasks(w http.ResponseWriter, r *http.Request) {
 	resp, err := json.Marshal(tasks)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
