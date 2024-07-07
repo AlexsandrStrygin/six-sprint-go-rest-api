@@ -51,11 +51,11 @@ func getTasks(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	_, err := w.Write(resp)
+        w.WriteHeader(http.StatusOK)
+	_, err = w.Write(resp)
         if err != nil{
                     log.Printf("Error writing response: %v", err)
         }
-        w.WriteHeader(http.StatusOK)
 }
 
 // Обработчик для отправки задачи на сервер
@@ -101,11 +101,11 @@ func getTask(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-        _, err := w.Write(resp)
+        w.WriteHeader(http.StatusOK)
+        _, err = w.Write(resp)
         if err != nil{
                      log.Printf("Error writing response: %v", err)
         }
-	w.WriteHeader(http.StatusOK)
 }
 
 // Обработчик удаления задачи по ID
